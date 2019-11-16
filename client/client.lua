@@ -46,8 +46,7 @@ end, false)
 
 RegisterCommand("prints", function(source, args, rawCommand) -- SOME DEV PRINTS
     print (Citizen.InvokeNative(0x275F255ED201B937, 0))
-    print (Citizen.InvokeNative(0x47E385B0D957C8D4))
-    print (Citizen.InvokeNative(player))
+    print (player)
 end, false)
 
 RegisterCommand("map", function(source, args, rawCommand) -- REVEAL MAP
@@ -58,7 +57,7 @@ end, false)
   --  if args[1] == nil then
     --print("Please set the specific name for ped")
     --else
-    --Citizen.InvokeNative(0xED40380076A31506, player, GetHashKey(args[1]), 0);
+    --Citizen.InvokeNative(0xED40380076A31506, player, GetHashKey(args[1]), false);
     --end
 --end, false)
 
