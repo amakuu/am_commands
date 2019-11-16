@@ -1,16 +1,5 @@
-RegisterCommand("ping", function(source, args, rawCommand)
-    -- If the source is > 0, then that means it must be a player.
-    if (source > 0) then print("PONG!")
-    else print("Selfping!")
-    end
-end, false --[[this command is not restricted, everyone can use this.]])
-
-RegisterCommand("getPlayers", function(source, args, rawCommand)
-    players = GetPlayers()
-    print(players)
-end, false)
-
 local isHud = true
+local player = Citizen.InvokeNative(0x47E385B0D957C8D4)
 
 RegisterCommand("togglehud", function(source, args, rawCommand)
     if isHud == true then 
@@ -22,7 +11,7 @@ RegisterCommand("togglehud", function(source, args, rawCommand)
     end
 end, false)
 
-RegisterCommand("time", function(source, args, rawCommand)
+RegisterCommand("time", function(source, args, rawCommand) -- SETS THE TIME
     if args[1] == nil then
         print("Please set the hour 0-23")
     else
@@ -36,7 +25,7 @@ RegisterCommand("time", function(source, args, rawCommand)
     end
 end, false)
 
-RegisterCommand("timecycle", function(source, args, rawCommand)
+RegisterCommand("timecycle", function(source, args, rawCommand) -- SET THE TIMECYCLE
     if args[1] == nil then
     print("Please set the specific name for timecycle")
     else
@@ -46,7 +35,7 @@ RegisterCommand("timecycle", function(source, args, rawCommand)
 end, false)
 
 
-RegisterCommand("weapon", function(source, args, rawCommand)
+RegisterCommand("weapon", function(source, args, rawCommand) -- GIVES A WEAPON
     if args[1] == nil then
     print("Please set the specific name for weapon")
     else
@@ -55,13 +44,23 @@ RegisterCommand("weapon", function(source, args, rawCommand)
     end
 end, false)
 
-RegisterCommand("prints", function(source, args, rawCommand)
+RegisterCommand("prints", function(source, args, rawCommand) -- SOME DEV PRINTS
     print (Citizen.InvokeNative(0x275F255ED201B937, 0))
+    print (Citizen.InvokeNative(0x47E385B0D957C8D4))
+    print (Citizen.InvokeNative(0x5C880F9056D784C8, -1))
 end, false)
 
-RegisterCommand("map", function(source, args, rawCommand)
+RegisterCommand("map", function(source, args, rawCommand) -- REVEAL MAP
     Citizen.InvokeNative(0x4B8F743A4A6D2FF8, true)
 end, false)
+
+--RegisterCommand("ped", function(source, args, rawCommand)
+  --  if args[1] == nil then
+    --print("Please set the specific name for ped")
+    --else
+    --Citizen.InvokeNative(0xED40380076A31506, player, GetHashKey(args[1]), 0);
+    --end
+--end, false)
 
 
 --Citizen.CreateThread(function()
@@ -69,6 +68,4 @@ end, false)
        -- Citizen.InvokeNative(0x4B8F743A4A6D2FF8, true); -- POKAZUJE CAŁA MAPE
     --end
   --end)
-
-
     
