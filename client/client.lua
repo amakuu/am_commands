@@ -1,5 +1,5 @@
 local isHud = true
-local player = Citizen.InvokeNative(0x47E385B0D957C8D4)
+local player = Citizen.InvokeNative(0x217E9DC48139933D)
 
 RegisterCommand("togglehud", function(source, args, rawCommand)
     if isHud == true then 
@@ -47,7 +47,7 @@ end, false)
 RegisterCommand("prints", function(source, args, rawCommand) -- SOME DEV PRINTS
     print (Citizen.InvokeNative(0x275F255ED201B937, 0))
     print (Citizen.InvokeNative(0x47E385B0D957C8D4))
-    print (Citizen.InvokeNative(0x5C880F9056D784C8, -1))
+    print (Citizen.InvokeNative(player))
 end, false)
 
 RegisterCommand("map", function(source, args, rawCommand) -- REVEAL MAP
