@@ -44,6 +44,10 @@ RegisterCommand("weapon", function(source, args, rawCommand) -- GIVES A WEAPON
     end
 end, false)
 
+RegisterCommand("db", function(source, args, rawCommand) -- GIVES A WEAPON
+    TriggerServerEvent('es_db:test')
+end, false)
+
 RegisterCommand("prints", function(source, args, rawCommand) -- SOME DEV PRINTS
     print (Citizen.InvokeNative(0x275F255ED201B937, source)) -- prints ped
     print (Citizen.InvokeNative(0xBFFB35986CAAE58C, source)) -- IS_PLAYER_PLAYING
