@@ -45,21 +45,24 @@ RegisterCommand("weapon", function(source, args, rawCommand) -- GIVES A WEAPON
 end, false)
 
 RegisterCommand("prints", function(source, args, rawCommand) -- SOME DEV PRINTS
-    print (Citizen.InvokeNative(0x275F255ED201B937, 0))
-    print (player)
+    print (Citizen.InvokeNative(0x275F255ED201B937, source)) -- prints ped
+    print (Citizen.InvokeNative(0xBFFB35986CAAE58C, source)) -- IS_PLAYER_PLAYING
+    print (source)
 end, false)
 
 RegisterCommand("map", function(source, args, rawCommand) -- REVEAL MAP
     Citizen.InvokeNative(0x4B8F743A4A6D2FF8, true)
 end, false)
 
---RegisterCommand("ped", function(source, args, rawCommand)
-  --  if args[1] == nil then
-    --print("Please set the specific name for ped")
-    --else
-    --Citizen.InvokeNative(0xED40380076A31506, player, GetHashKey(args[1]), false);
-    --end
---end, false)
+RegisterCommand("ped", function(source, args, rawCommand) -- TRYING TO FIGURE IT OUT NOT WORKING
+    if args[1] == nil then
+    print("Please set the specific name for ped")
+    else
+    Citizen.InvokeNative(0xED40380076A31506, source, GetHashKey(args[1]), false)
+    Citizen.InvokeNative(0x283978A15512B2FE, 0x096275889B8E0EE0, true) -- IDK WHAT THIS
+    Citizen.InvokeNative(0x4AD96EF928BD4F9A, GetHashKey(args[1])) -- SET_MODEL_AS_NO_LONGER_NEEDED
+    end
+end, false)
 
 
 --Citizen.CreateThread(function()
